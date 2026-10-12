@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marco Gentile</title><meta name="robots" content="noindex">
+<style>
+:root{--bg:#1b0f33;--card:#2a1850;--oro:#e8c46a;--testo:#f5efe2;--sub:#b9aedd}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,#3a1f6e,var(--bg) 60%);color:var(--testo);font-family:-apple-system,system-ui,"Segoe UI",sans-serif;display:flex;justify-content:center}
+main{width:100%;max-width:440px;padding:36px 16px 48px;text-align:center}
+.foto{width:96px;height:96px;border-radius:50%;border:3px solid var(--oro);background:var(--card) center/cover;margin:0 auto 14px}
+h1{margin:0 0 4px;font-size:22px}p.sub{margin:0 0 26px;color:var(--sub);font-size:15px;line-height:1.4}
+a.btn{display:block;text-decoration:none;color:var(--testo);background:var(--card);border:1px solid #4b2f8a;border-radius:14px;padding:16px 18px;margin:0 0 12px;text-align:left}
+a.btn b{display:block;font-size:17px;color:var(--oro);margin-bottom:3px}a.btn span{font-size:14px;color:var(--sub);line-height:1.35}
+a.btn:active{transform:scale(.98)}a.top{border-color:var(--oro);box-shadow:0 0 0 1px var(--oro) inset}
+.dm{margin-top:22px;font-size:14px;color:var(--sub)}
+</style></head><body><main>
+<div class="foto" id="foto"></div>
+<h1>Marco Gentile</h1>
+<p class="sub">Capire perché ci arrivi vicino e poi si allontana.<br>Scegli da dove partire.</p>
+<a class="btn top" id="quiz" data-base="https://www.realityarchitecture.it/test-allineamento"><b>Fai il quiz (2 minuti)</b><span>Scopri cosa ti sta fermando adesso e da dove ripartire.</span></a>
+<a class="btn" id="candidatura" data-base="https://www.realityarchitecture.it/candidatura"><b>Candidati per lavorare con me</b><span>Racconti la tua situazione e vediamo se è il momento giusto.</span></a>
+<p class="dm">Preferisci scrivermi? Rispondi a una storia o scrivi nei DM la parola <b>QUIZ</b>.</p>
+</main>
+<script>
+// Attribuzione: ogni ingresso mette ?s=bio|storia|post|reel... nel link. Quiz: r=ig-<s> + utm. Candidatura: solo utm (utm_content=candidatura-<s>); Systeme li salva.
+var q=new URLSearchParams(location.search),s=(q.get('s')||'bio').replace(/[^a-z0-9-]/gi,'').slice(0,20)||'bio';
+['quiz','candidatura'].forEach(function(id){var a=document.getElementById(id),b=a.getAttribute('data-base');
+ if(b.indexOf('DA_INSERIRE')===0){a.style.opacity='.5';a.removeAttribute('href');return}
+ var u=new URL(b);if(id==='quiz')u.searchParams.set('r','ig-'+s);u.searchParams.set('utm_source','instagram');u.searchParams.set('utm_medium','organico');u.searchParams.set('utm_campaign','linkinbio');u.searchParams.set('utm_content',id+'-'+s);a.href=u.toString()});
+</script></body></html>
