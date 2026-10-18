@@ -15,16 +15,15 @@ a.btn:active{transform:scale(.98)}a.top{border-color:var(--oro);box-shadow:0 0 0
 <div class="foto" id="foto"></div>
 <h1>Marco Gentile</h1>
 <p class="sub">Capire perché ci arrivi vicino e poi si allontana.<br>Scegli da dove partire.</p>
-<a class="btn top" id="quiz" data-base="https://www.realityarchitecture.it/test-allineamento"><b>Fai il quiz (2 minuti)</b><span>Scopri cosa ti sta fermando adesso e da dove ripartire.</span></a>
-<a class="btn" id="libro" data-base="https://www.realityarchitecture.it/lo-specchio"><b>Il libro: Lo Specchio</b><span>Leggilo a casa tua, quando vuoi.</span></a>
+<a class="btn top" id="libro" data-base="https://www.realityarchitecture.it/lo-specchio"><b>Il libro: Lo Specchio</b><span>Leggilo a casa tua, quando vuoi.</span></a>
 <a class="btn" id="candidatura" data-base="https://www.realityarchitecture.it/candidatura"><b>Candidati per lavorare con me</b><span>Racconti la tua situazione e vediamo se è il momento giusto.</span></a>
 <a class="btn" id="mappa" data-base="https://www.realityarchitecture.it/la-mappa-corso-completo"><b>La Mappa · il corso completo</b><span>Il percorso passo passo, da fare con i tuoi tempi.</span></a>
-<p class="dm">Preferisci scrivermi? Rispondi a una storia o scrivi nei DM la parola <b>QUIZ</b>.</p>
+<p class="dm">Preferisci scrivermi? Rispondi a una storia o scrivi nei DM la parola <b>LIBRO</b>.</p>
 </main>
 <script>
 // Attribuzione: ogni ingresso mette ?s=bio|storia|post|reel... nel link. Quiz: r=ig-<s> + utm. Candidatura: solo utm (utm_content=candidatura-<s>); Systeme li salva.
 var q=new URLSearchParams(location.search),s=(q.get('s')||'bio').replace(/[^a-z0-9-]/gi,'').slice(0,20)||'bio';
-['quiz','libro','candidatura','mappa'].forEach(function(id){var a=document.getElementById(id),b=a.getAttribute('data-base');
+['libro','candidatura','mappa'].forEach(function(id){var a=document.getElementById(id),b=a.getAttribute('data-base');
  if(b.indexOf('DA_INSERIRE')===0){a.style.opacity='.5';a.removeAttribute('href');return}
- var u=new URL(b);if(id==='quiz'||id==='libro')u.searchParams.set('r','ig-'+s);u.searchParams.set('utm_source','instagram');u.searchParams.set('utm_medium',(id==='libro'||id==='mappa')?'bio':'organico');u.searchParams.set('utm_campaign',id==='libro'?'libro':id==='mappa'?'la-mappa':'linkinbio');u.searchParams.set('utm_content',id+'-'+s);a.href=u.toString()});
+ var u=new URL(b);if(id==='quiz'||id==='libro')u.searchParams.set('r','ig-'+s);u.searchParams.set('utm_source','instagram');u.searchParams.set('utm_medium','organico');u.searchParams.set('utm_campaign',id==='libro'?'libro':id==='mappa'?'la-mappa':'linkinbio');u.searchParams.set('utm_content',id+'-'+s);a.href=u.toString()});
 </script></body></html>
