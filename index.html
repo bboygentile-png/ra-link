@@ -24,7 +24,7 @@ a.btn:active{transform:scale(.98)}a.top{border-color:var(--oro);box-shadow:0 0 0
 <script>
 // Attribuzione: ogni ingresso mette ?s=bio|storia|post|reel... nel link. Quiz: r=ig-<s> + utm. Candidatura: solo utm (utm_content=candidatura-<s>); Systeme li salva.
 var q=new URLSearchParams(location.search),s=(q.get('s')||'bio').replace(/[^a-z0-9-]/gi,'').slice(0,20)||'bio';
-['libro','mappa','candidatura'].forEach(function(id){var a=document.getElementById(id),b=a.getAttribute('data-base');
+['libro','corso','mappa','candidatura'].forEach(function(id){var a=document.getElementById(id),b=a.getAttribute('data-base');
  if(b.indexOf('DA_INSERIRE')===0){a.style.opacity='.5';a.removeAttribute('href');return}
- var u=new URL(b);if(id==='quiz'||id==='libro')u.searchParams.set('r','ig-'+s);u.searchParams.set('utm_source','instagram');u.searchParams.set('utm_medium','organico');u.searchParams.set('utm_campaign',id==='libro'?'libro':id==='mappa'?'la-mappa':'linkinbio');u.searchParams.set('utm_content',id+'-'+s);a.href=u.toString()});
+ var u=new URL(b);if(id==='quiz'||id==='libro')u.searchParams.set('r','ig-'+s);u.searchParams.set('utm_source','instagram');u.searchParams.set('utm_medium','organico');u.searchParams.set('utm_campaign',id==='libro'?'libro':id==='mappa'?'la-mappa':id==='corso'?'oltre-il-mindset':'linkinbio');u.searchParams.set('utm_content',id+'-'+s);a.href=u.toString()});
 </script></body></html>
